@@ -38,8 +38,8 @@ describe("queue", function() {
     });
     it('should accept different data types',function(){
       queue.add({a:[1,2,3],b:'b'});
-      expect(queue.storage[0]).to.be.a('object');
-      expect(queue.storage[0]['b']).to.eql('b');
+      expect(queue.getStorage()[0]).to.be.a('object');
+      expect(queue.getStorage()[0]['b']).to.eql('b');
     });
     describe('Adding to the queue',function(){
       beforeEach(function(){
@@ -51,8 +51,8 @@ describe("queue", function() {
         expect(queue.size()).to.equal(3);
       });
       it('should increment keys sequentially',function(){
-        expect(queue.storage[3]).to.be.a('undefined');
-        expect(queue.storage[2]).to.equal('c');
+        expect(queue.getStorage()[3]).to.be.a('undefined');
+        expect(queue.getStorage()[2]).to.equal('c');
       });
     });
   });
@@ -73,10 +73,10 @@ describe("queue", function() {
     });
     it('should rekey the remaining the elements',function(){
       queue.remove();
-      expect(queue.storage[0]).to.equal('b');
-      expect(queue.storage[1]).to.equal('c');
-      expect(queue.storage[2]).to.equal('d');
-      expect(queue.storage[3]).to.equal(undefined);
+      expect(queue.getStorage()[0]).to.equal('b');
+      expect(queue.getStorage()[1]).to.equal('c');
+      expect(queue.getStorage()[2]).to.equal('d');
+      expect(queue.getStorage()[3]).to.equal(undefined);
     });
     it('should not remove an element from an empty queue',function(){
       for (var i = 0; i < 5; i++){

@@ -28,7 +28,7 @@ describe("stack", function() {
     it('should add an item to the stack when calling add', function(){
       stack.add('a');
       expect(stack.size()).to.equal(1);
-      expect(stack.storage[0]).to.equal('a');
+      expect(stack.getStorage()[0]).to.equal('a');
     });
     it('should add two items to the stack', function() {
       stack.add('b');
@@ -37,8 +37,8 @@ describe("stack", function() {
     });
     it('should add non-primitive objects to the stack',function(){
       stack.add({key: 'value', array: [1,2,3]});
-      expect(stack.storage[0]).to.be.a('object');
-      expect(stack.storage[0]['array']).to.eql([1,2,3]);
+      expect(stack.getStorage()[0]).to.be.a('object');
+      expect(stack.getStorage()[0]['array']).to.eql([1,2,3]);
     });
   });
   describe('#remove()', function(){
@@ -52,9 +52,9 @@ describe("stack", function() {
     });
     it('should remove the last item entered', function(){
       stack.remove();
-      expect(stack.storage).to.eql({0: 'a', 1: 'b'});
+      expect(stack.getStorage()).to.eql({0: 'a', 1: 'b'});
       stack.remove();
-      expect(stack.storage).to.eql({0: 'a'});
+      expect(stack.getStorage()).to.eql({0: 'a'});
     });
     it('should return the removed item',function(){
       expect(stack.remove()).to.equal('c');

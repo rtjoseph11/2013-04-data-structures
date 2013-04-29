@@ -5,10 +5,7 @@ var makeStack = function(){
   var size = 0; // Hint: set an initial value here
 
   // Implement the methods below
-  var stack = {
-    storage: storage,
-    size: size
-  };
+  var stack = {};
 
   stack.add = function(value){
     storage[size] = value;
@@ -26,6 +23,9 @@ var makeStack = function(){
 
   stack.size = function(){
     return size;
+  };
+  stack.getStorage = function(){
+    return storage;
   };
 
   return stack;
