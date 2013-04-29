@@ -11,9 +11,21 @@ var makeQueue = function(){
   };
 
   queue.add = function(value){
+    storage[size] = value;
+    size++;
   };
 
   queue.remove = function(){
+    if (size > 0){
+      delete storage[0];
+      size--;
+      for (var key in storage){
+        if(storage.hasOwnProperty(key)){
+          storage[key-1] = storage[key];
+        }
+      }
+      delete storage[size];
+    }
   };
 
   queue.size = function(){

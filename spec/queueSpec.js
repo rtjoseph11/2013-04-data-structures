@@ -34,7 +34,7 @@ describe("queue", function() {
     });
     it('should increment the size',function(){
       queue.add('a');
-      expect(queue.size).to.equal(1);
+      expect(queue.size()).to.equal(1);
     });
     it('should accept different data types',function(){
       queue.add({a:[1,2,3],b:'b'});
@@ -48,7 +48,7 @@ describe("queue", function() {
         queue.add('c');
       });
       it('should add multiple items to the queue',function(){
-        expect(queue.size).to.equal(3);
+        expect(queue.size()).to.equal(3);
       });
       it('should increment keys sequentially',function(){
         expect(queue.storage[3]).to.be.a('undefined');
