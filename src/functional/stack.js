@@ -11,14 +11,14 @@ var makeStack = function(){
   };
 
   stack.add = function(value){
-    size++;
     storage[size] = value;
+    size++;
   };
 
   stack.remove = function(){
     if (size > 0){
-    delete storage[size];
     size--;
+    delete storage[size];
     }
   };
 
