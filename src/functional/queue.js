@@ -17,6 +17,7 @@ var makeQueue = function(){
 
   queue.remove = function(){
     if (size > 0){
+      var removedItem = storage[0];
       delete storage[0];
       size--;
       for (var key in storage){
@@ -25,6 +26,7 @@ var makeQueue = function(){
         }
       }
       delete storage[size];
+      return removedItem;
     }
   };
 

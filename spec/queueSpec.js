@@ -68,6 +68,9 @@ describe("queue", function() {
       queue.remove();
       expect(queue.size()).to.equal(3);
     });
+    it('should return the removed element from the queue',function(){
+      expect(queue.remove()).to.equal('a');
+    });
     it('should rekey the remaining the elements',function(){
       queue.remove();
       expect(queue.storage[0]).to.equal('b');

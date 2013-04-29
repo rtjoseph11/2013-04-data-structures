@@ -56,6 +56,9 @@ describe("stack", function() {
       stack.remove();
       expect(stack.storage).to.eql({0: 'a'});
     });
+    it('should return the removed item',function(){
+      expect(stack.remove()).to.equal('c');
+    });
     it('should decrease the stack size', function(){
       expect(stack.size()).to.equal(3);
       stack.remove();
